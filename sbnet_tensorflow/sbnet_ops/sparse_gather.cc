@@ -155,7 +155,7 @@ public:
         OP_REQUIRES_OK(context, context->GetAttr("boffset", &boffset));
         OP_REQUIRES(context,
             bsize.size() == 2 && bstride.size() == 2 && boffset.size() == 2,
-            errors::InvalidArgument("All block attributes must have a shape of (2,)."))
+            errors::InvalidArgument("All block attributes must have a shape of (2,)."));
         OP_REQUIRES_OK(context, context->GetAttr("transpose", &transpose_));
 
         bSzH_    = bsize[0];   bSzW_ = bsize[1];
@@ -278,7 +278,7 @@ public:
         OP_REQUIRES_OK(context, context->GetAttr("boffset", &boffset));
         OP_REQUIRES(context,
             bsize.size() == 2 && bstride.size() == 2 && boffset.size() == 2,
-            errors::InvalidArgument("All block attributes must have a shape of (2,)."))
+            errors::InvalidArgument("All block attributes must have a shape of (2,)."));
         bSzH_    = bsize[0];   bSzW_ = bsize[1];
         bStrH_   = bstride[0]; bStrW_ = bstride[1];
         bOffsH0_ = boffset[0]; bOffsW0_ = boffset[1];
