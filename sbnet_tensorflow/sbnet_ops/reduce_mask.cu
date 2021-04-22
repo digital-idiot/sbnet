@@ -25,7 +25,8 @@
 #include "reduce_mask.h"
 #include "zero_block_counters.cu.h"
 #include "reduce_mask.cu.h"
-#include "tensorflow/core/util/cuda_kernel_helper.h"
+// #include "tensorflow/core/util/cuda_kernel_helper.h"
+#include "tensorflow/core/util/gpu_kernel_helper.h"
 #include "cuda_helpers.h"
 
 using namespace tensorflow;
@@ -33,6 +34,7 @@ using std::cout;
 using std::endl;
 
 // Define the GPU implementation that launches the CUDA kernel.
+typedef Eigen::GpuDevice GPUDevice;
 template <typename T> struct ReduceMaskFunctor<GPUDevice, T> {
     void operator()(const GPUDevice& d, // Device.
         const T* mask,                  // Mask array.

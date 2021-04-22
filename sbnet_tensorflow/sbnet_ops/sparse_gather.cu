@@ -24,13 +24,15 @@
 
 #include "sparse_gather.h"
 #include "sparse_blocks.cu.h"
-#include "tensorflow/core/util/cuda_kernel_helper.h"
+// #include "tensorflow/core/util/cuda_kernel_helper.h"
+#include "tensorflow/core/util/gpu_kernel_helper.h"
 #include "cuda_helpers.h"
 #include "cuda_runtime.h"
 
 using namespace tensorflow;
 using std::cout;
 using std::endl;
+typedef Eigen::GpuDevice GPUDevice;
 
 #define COMPUTE_R1(RR) ((RR) < 7 ? ((RR) == 1 ? 1 : 2) : 4)
 
